@@ -53,6 +53,12 @@ const MusicPlayer = () => {
   return (
     <div className='relative sm:px-12 px-0 w-full flex items-center justify-between'>
       <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} />
+      <div className='flex-1 flex flex-col items-center justify-center'>
+        <Controls isPlaying={isPlaying} isActive={isActive} repeat={repeat} setRepeat={setRepeat} shuffle={shuffle} setShuffle={setShuffle} currentSongs={currentSongs} handlePlayPause={handlePlayPause} handlePrevSong={handlePrevSong} handleNextSong={handleNextSong} />
+        <SeekBar value={apptime} min="0" max={duration} onInput={(event) => setSeekTime(event.target.value)} setSeekTime={setSeekTime} apptime={apptime} />
+        <Player activeSong={activeSong} volume={volume} isPlaying={isPlaying} seektime={seektime} repeat={repeat} currentIndex={currentIndex} onEnded={handleNextSong} onTimeUpdate={(event) => setAppTime(event.target.currentTime)} onLoadedData={(event) => setDuration(event.target.duration)} />
+      </div>
+      <VolumeBar value={volume} min="0" max="1" onChange={(event) => setVolume(event.target.value)} setVolume={setVolume} />
     </div>
   )
 }

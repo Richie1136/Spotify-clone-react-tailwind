@@ -1,5 +1,5 @@
 
-const VolumeBar = () => {
+const VolumeBar = ({ value, min, max, onChange, setVolume }) => {
   return (
     <div>VolumeBar</div>
   )
