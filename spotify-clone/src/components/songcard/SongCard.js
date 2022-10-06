@@ -1,5 +1,5 @@
 
-const SongCard = () => {
+const SongCard = ({ song }) => {
   return (
     <div>SongCard</div>
   )
