@@ -6,6 +6,8 @@ import PlayPause from '../playpause/PlayPause'
 
 const SongCard = ({ song, index }) => {
 
+  console.log(song)
+
   const activeSong = "test"
 
   return (
@@ -15,6 +17,7 @@ const SongCard = ({ song, index }) => {
           <PlayPause />
         </div>
         <h2>{song.title}</h2>
+        <img src={song.images.coverart} alt="song" />
       </div>
     </div>
   )
