@@ -16,8 +16,19 @@ const SongCard = ({ song, index }) => {
         <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
           <PlayPause />
         </div>
-        <h2>{song.title}</h2>
         <img src={song.images.coverart} alt="song" />
+      </div>
+      <div className="mt-4 flex flex-col">
+        <p className="font-semibold text-lg text-white">
+          <NavLink to={`/songs/${song?.key}`}>
+            {song.title}
+          </NavLink>
+        </p>
+        <p className="text-sm truncate text-gray-300 mt-1">
+          <NavLink to={song.artists ? `/artists/${song?.artists[0]?.adamid}` : '/top-artists'}>
+            {song.subtitle}
+          </NavLink>
+        </p>
       </div>
     </div>
   )
