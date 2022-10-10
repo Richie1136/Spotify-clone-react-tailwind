@@ -8,13 +8,16 @@ const SongCard = ({ song, index, isPlaying, activeSong, data }) => {
 
   console.log(song)
 
+  const dispatch = useDispatch()
+
 
   const handlePause = () => {
-
+    dispatch(playPause(false))
   }
 
   const handlePlay = () => {
-
+    dispatch(setActiveSong({ song, data, index }))
+    dispatch(playPause(true))
   }
 
   return (
