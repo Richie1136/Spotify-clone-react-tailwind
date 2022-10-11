@@ -18,8 +18,25 @@ const TopPlay = () => {
   const { data } = useGetTopChartsQuery()
   const divRef = useRef(null)
 
+  const TopPlays = data?.slice(0, 5)
+
+  useEffect(() => {
+    divRef.current.scrollIntoView({ behavior: 'smoooth' })
+  }, [])
+
+
+
+  const handlePause = () => {
+    dispatch(playPause(false))
+  }
+
+  const handlePlay = () => {
+    dispatch(setActiveSong({ song, data, index }))
+    dispatch(playPause(true))
+  }
+
   return (
-    <div>TopPlay</div>
+    <div ref={divRef}>TopPlay</div>
   )
 }
 
