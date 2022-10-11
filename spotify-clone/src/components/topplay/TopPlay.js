@@ -46,9 +46,17 @@ const TopPlay = () => {
           </NavLink>
         </div>
         <div className="mt-4 flex flex-col gap-1">
-          {TopPlays?.map((top, i) => (
-            <TopChartCard />
+          {TopPlays?.map((song, index) => (
+            <TopChartCard key={song.key} song={song} index={index} />
           ))}
+        </div>
+      </div>
+      <div className="w-full flex flex-col mt-8">
+        <div className="flex flex-row justify-between items-center">
+          <h2 className="text-white font-bold text-2xl">Top Artists</h2>
+          <NavLink to="/top-artists">
+            <p className="text-gray-300 text-base cursor-pointer">See more</p>
+          </NavLink>
         </div>
       </div>
     </div>
