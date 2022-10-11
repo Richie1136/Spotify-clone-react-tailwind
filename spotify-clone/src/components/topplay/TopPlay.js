@@ -6,6 +6,7 @@ import { FreeMode } from "swiper"
 import PlayPause from "../playpause/PlayPause"
 import { playPause, setActiveSong } from "../../redux/features/playerSlice"
 import { useGetTopChartsQuery } from '../../redux/services/shazamCore'
+import TopChartCard from "../topchartcard/TopChartCard"
 
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -39,10 +40,15 @@ const TopPlay = () => {
     <div className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col" ref={divRef}>
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
-          <h2>Top Charts</h2>
+          <h2 className="text-white font-bold text-2xl">Top Charts</h2>
           <NavLink to="/top-charts">
-            <p>See more</p>
+            <p className="text-gray-300 text-base cursor-pointer">See more</p>
           </NavLink>
+        </div>
+        <div className="mt-4 flex flex-col gap-1">
+          {TopPlays?.map((top, i) => (
+            <TopChartCard />
+          ))}
         </div>
       </div>
     </div>
