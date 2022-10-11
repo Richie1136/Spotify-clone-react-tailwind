@@ -22,7 +22,7 @@ const TopPlay = () => {
 
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: 'smoooth' })
-  }, [])
+  })
 
 
 
@@ -36,7 +36,7 @@ const TopPlay = () => {
   }
 
   return (
-    <div ref={divRef}>TopPlay</div>
+    <div className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col" ref={divRef}>TopPlay</div>
   )
 }
 
