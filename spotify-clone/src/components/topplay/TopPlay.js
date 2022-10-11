@@ -21,22 +21,31 @@ const TopPlay = () => {
   const TopPlays = data?.slice(0, 5)
 
   useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: 'smoooth' })
+    divRef.current.scrollIntoView({ behavior: 'smooth' })
   })
 
 
 
-  const handlePause = () => {
-    dispatch(playPause(false))
-  }
+  // const handlePause = () => {
+  //   dispatch(playPause(false))
+  // }
 
-  const handlePlay = () => {
-    dispatch(setActiveSong({ song, data, index }))
-    dispatch(playPause(true))
-  }
+  // const handlePlay = () => {
+  //   dispatch(setActiveSong({ song, data, index }))
+  //   dispatch(playPause(true))
+  // }
 
   return (
-    <div className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col" ref={divRef}>TopPlay</div>
+    <div className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col" ref={divRef}>
+      <div className="w-full flex flex-col">
+        <div className="flex flex-row justify-between items-center">
+          <h2>Top Charts</h2>
+          <NavLink to="/top-charts">
+            <p>See more</p>
+          </NavLink>
+        </div>
+      </div>
+    </div>
   )
 }
 
