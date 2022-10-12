@@ -6,7 +6,6 @@ import PlayPause from '../playpause/PlayPause'
 
 const SongCard = ({ song, index, isPlaying, activeSong, data }) => {
 
-  console.log(song)
 
   const dispatch = useDispatch()
 
