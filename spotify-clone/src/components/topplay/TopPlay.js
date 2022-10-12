@@ -19,7 +19,7 @@ const TopPlay = () => {
   const { data } = useGetTopChartsQuery()
   const divRef = useRef(null)
 
-  const TopPlays = data?.slice(0, 5)
+  const topPlays = data?.slice(0, 5)
 
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -31,7 +31,7 @@ const TopPlay = () => {
     dispatch(playPause(false))
   }
 
-  const handlePlay = () => {
+  const handlePlay = (song, index) => {
     dispatch(setActiveSong({ song, data, index }))
     dispatch(playPause(true))
   }
@@ -46,8 +46,8 @@ const TopPlay = () => {
           </NavLink>
         </div>
         <div className="mt-4 flex flex-col gap-1">
-          {TopPlays?.map((song, index) => (
-            <TopChartCard key={song.key} song={song} index={index} isPlaying={isPlaying} activeSong={activeSong} handlePause={handlePause} handlePlay={handlePlay} />
+          {topPlays?.map((song, index) => (
+            <TopChartCard key={song.key} song={song} index={index} isPlaying={isPlaying} activeSong={activeSong} handlePause={handlePause} handlePlay={() => handlePlay(song, index)} />
           ))}
         </div>
       </div>
@@ -59,10 +59,10 @@ const TopPlay = () => {
           </NavLink>
         </div>
         <Swiper className="mt-4" slidesPerView="auto" spaceBetween={15} freeMode centeredSlides centeredSlidesBounds modules={[FreeMode]}>
-          {TopPlays?.map((song, index) => (
-            <SwiperSlide className="shadow-lg rounded-full animate-slideright" key={song.key} index={index} style={{ width: '25%', height: 'auto' }}>
-              <NavLink to={`/artists/${song?.artists[0].adamid}`}>
-                <img className="rounded-full w-full object-cover" src={song?.images.background} alt="name" />
+          {topPlays?.map((artist) => (
+            <SwiperSlide className="shadow-lg rounded-full animate-slideright" key={artist?.key} style={{ width: '25%', height: 'auto' }}>
+              <NavLink to={`/artists/${artist?.artists[0].adamid}`}>
+                <img className="rounded-full w-full object-cover" src={artist?.images.background} alt="name" />
               </NavLink>
             </SwiperSlide>
           ))}
