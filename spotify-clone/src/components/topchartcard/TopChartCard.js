@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import PlayPause from "../playpause/PlayPause"
 
 const TopChartCard = ({ song, index, isPlaying, activeSong, handlePause, handlePlay }) => {
   console.log(song)
@@ -16,6 +17,7 @@ const TopChartCard = ({ song, index, isPlaying, activeSong, handlePause, handleP
           </NavLink>
         </div>
       </div>
+      <PlayPause isPlaying={isPlaying} activeSong={activeSong} handlePause={handlePause} handlePlay={handlePlay} song={song} />
     </div>
   )
 }
