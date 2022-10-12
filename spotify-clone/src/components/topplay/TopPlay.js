@@ -27,14 +27,14 @@ const TopPlay = () => {
 
 
 
-  // const handlePause = () => {
-  //   dispatch(playPause(false))
-  // }
+  const handlePause = () => {
+    dispatch(playPause(false))
+  }
 
-  // const handlePlay = () => {
-  //   dispatch(setActiveSong({ song, data, index }))
-  //   dispatch(playPause(true))
-  // }
+  const handlePlay = () => {
+    dispatch(setActiveSong({ song, data, index }))
+    dispatch(playPause(true))
+  }
 
   return (
     <div className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col" ref={divRef}>
@@ -47,7 +47,7 @@ const TopPlay = () => {
         </div>
         <div className="mt-4 flex flex-col gap-1">
           {TopPlays?.map((song, index) => (
-            <TopChartCard key={song.key} song={song} index={index} />
+            <TopChartCard key={song.key} song={song} index={index} isPlaying={isPlaying} activeSong={activeSong} handlePause={handlePause} handlePlay={handlePlay} />
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-const TopChartCard = ({ song, index }) => {
+const TopChartCard = ({ song, index, isPlaying, activeSong, handlePause, handlePlay }) => {
   console.log(song)
   return (
     <div className="w-full flex flex-row items-center hover:bg-[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2">
@@ -12,7 +12,7 @@ const TopChartCard = ({ song, index }) => {
             <p className="text-xl font-bold text-white">{song?.title}</p>
           </NavLink>
           <NavLink to={`/artists/${song?.artists[0].adamid}`}>
-            <p className="text-xl font-bold text-white">{song?.subtitle}</p>
+            <p className="text-base text-gray-300 mt-1">{song?.subtitle}</p>
           </NavLink>
         </div>
       </div>
