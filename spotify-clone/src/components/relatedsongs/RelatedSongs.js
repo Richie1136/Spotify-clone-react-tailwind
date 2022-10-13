@@ -1,5 +1,5 @@
 
-const RelatedSongs = () => {
+const RelatedSongs = ({ data, isPlaying, activeSong, handlePause, handlePlay }) => {
   return (
     <div>RelatedSongs</div>
   )
