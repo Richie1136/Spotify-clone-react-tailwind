@@ -9,6 +9,11 @@ const DetailsHeader = ({ artistId, songData, artistData }) => {
         <img className="sm:w-48 w-28 sm:h-48 h-28 rounded-full object-cover border-2 shadow-xl shadow-black" src={artistId ? artistData?.artists[artistId].attributes?.artwork?.url.replace('{w}', '500').replace('{h}', '500') : songData?.images?.coverart} alt='art' />
         <div className="ml-5">
           <p className="font-bold sm:text-3xl text-xl text-white">{artistId ? artistData?.artists[artistId].attributes.name : songData?.title}</p>
+          {!artistId && (
+            <NavLink to={`/artists/${songData?.artists[0].adamid}`}>
+              <p className="text-base text-gray-400 mt-2">{songData?.subtitle}</p>
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
