@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { DetailsHeader, Error, Loader, RelatedSongs } from "../../components"
 import { setActiveSong, playPause } from "../../redux/features/playerSlice"
-import { useGetSongDetailsQuery } from "../../redux/services/shazamCore"
+import { useGetSongDetailsQuery, useGetSongRelatedQuery } from "../../redux/services/shazamCore"
 
 const SongDetails = () => {
 
@@ -19,6 +19,10 @@ const SongDetails = () => {
 
   const { data: songData, isFetching } = useGetSongDetailsQuery(songid)
 
+  const { data, isFetching: relatedSongs, error } = useGetSongRelatedQuery(songid)
+
+  if (isFetching || relatedSongs) return <Loader title="Searching song details" />
+
 
   return (
     <div className="flex flex-col">
@@ -31,6 +35,7 @@ const SongDetails = () => {
           )) : <p className="text-gray-400">Sorry, no lyrics found</p>}
         </div>
       </div>
+      <RelatedSongs />
     </div>
   )
 }
