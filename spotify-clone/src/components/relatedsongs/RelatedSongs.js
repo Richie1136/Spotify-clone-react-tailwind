@@ -3,7 +3,9 @@ import SongBar from "../songbar/SongBar"
 
 const RelatedSongs = ({ data, isPlaying, activeSong, handlePause, handlePlay }) => {
   return (
-    <div>RelatedSongs</div>
+    <div className="flex flex-col">
+
+    </div>
   )
 }
 
