@@ -2,8 +2,6 @@ import { NavLink } from "react-router-dom"
 
 const DetailsHeader = ({ artistId, songData, artistData }) => {
 
-  console.log(artistData)
-  console.log(songData)
 
   return (
     <div className="relative w-full flex flex-col">

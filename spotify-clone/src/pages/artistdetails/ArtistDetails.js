@@ -10,7 +10,6 @@ const ArtistDetails = () => {
   const obj = new URLSearchParams(artistid)
 
   const term = obj.get('artistid')
-  console.log(term)
 
 
   const { activeSong, isPlaying } = useSelector((state) => state.player)
