@@ -9,6 +9,9 @@ const AroundYou = () => {
 
   const { activeSong, isPlaying } = useSelector((state) => state.player)
 
+  const { data, isFetching, error } = useGetSongsByCountryQuery(country)
+
+
 
   useEffect(() => {
     const getLocationData = async () => {
@@ -24,10 +27,14 @@ const AroundYou = () => {
     getLocationData()
   }, [country])
 
+  if (isFetching && loading) return <Loader title="Loading songs around you" />
 
+  if (error && country) return <Error />
 
   return (
-    <div>AroundYou</div>
+    <div className="flex flex-col">
+      <h2>Around you</h2>
+    </div>
   )
 }
 
