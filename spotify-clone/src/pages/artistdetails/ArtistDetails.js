@@ -5,7 +5,7 @@ import { useGetArtistDetailsQuery } from "../../redux/services/shazamCore"
 
 const ArtistDetails = () => {
 
-  const { artistid } = useParams()
+  const { id: artistid } = useParams()
 
   const obj = new URLSearchParams(artistid)
 
@@ -18,7 +18,9 @@ const ArtistDetails = () => {
   const { data: artistData, isFetching, error } = useGetArtistDetailsQuery(artistid)
 
 
-  if (isFetching || error) return <Loader title="Loading artist details" />
+  if (isFetching) return <Loader title="Loading artist details" />
+
+  if (error) return <Error />
 
 
   return (
