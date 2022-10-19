@@ -25,7 +25,7 @@ const SongCard = ({ song, index, isPlaying, activeSong, data }) => {
         <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
           <PlayPause song={song} handlePause={handlePause} handlePlay={handlePlay} isPlaying={isPlaying} activeSong={activeSong} />
         </div>
-        <img src={song.images.coverart} alt="song" />
+        <img src={song?.images?.coverart} alt="song" />
       </div>
       <div className="mt-4 flex flex-col">
         <p className="font-semibold text-lg text-white">
