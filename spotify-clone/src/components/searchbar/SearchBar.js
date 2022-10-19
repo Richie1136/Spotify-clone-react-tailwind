@@ -4,15 +4,18 @@ import { FiSearch } from 'react-icons/fi'
 
 const SearchBar = () => {
 
-  const [input, setInput] = useState("")
+  const navigate = useNavigate()
+
+  const [term, setTerm] = useState("")
 
   const handleInput = (event) => {
-    setInput(event.target.value)
+    setTerm(event.target.value)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setInput("")
+    navigate(`/search/${term}`)
+    setTerm("")
   }
 
 
@@ -21,7 +24,7 @@ const SearchBar = () => {
       <label htmlFor="search field" className="sr-only">Search All Songs</label>
       <div className="flex flex-row justify-start items-center">
         <FiSearch className="w-6 h-6 ml-4" />
-        <input className="flex-1 bg-transparent border-none outline-none placeholder-gray-500 text-base text-white p-4" name="Search Field" autoComplete="off" id='search field' placeholder="Search" type='search' value={input} onChange={handleInput} />
+        <input className="flex-1 bg-transparent border-none outline-none placeholder-gray-500 text-base text-white p-4" name="Search Field" autoComplete="off" id='search field' placeholder="Search" type='search' value={term} onChange={handleInput} />
       </div>
     </form>
   )
