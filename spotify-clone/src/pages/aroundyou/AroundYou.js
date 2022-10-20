@@ -11,10 +11,12 @@ const AroundYou = () => {
 
   const { data, isFetching, error } = useGetSongsByCountryQuery(country)
 
+  const API_KEY = process.env.REACT_APP_API_KEY
+
   useEffect(() => {
     const getLocationData = async () => {
       try {
-        const response = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_vh6PhPgmeOTSuuQY8BYWWuiVwxT7v`)
+        const response = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}`)
         const data = await response.json()
         setCountry(data?.location.country)
       } catch (error) {
