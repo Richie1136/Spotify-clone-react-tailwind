@@ -4,14 +4,11 @@ import { useGetSongsByGenreQuery } from "../../redux/services/shazamCore"
 import { useDispatch, useSelector } from "react-redux"
 import { selectGenreListId } from "../../redux/features/playerSlice"
 
-
 const Discover = () => {
-
 
   const dispatch = useDispatch()
   const { activeSong, isPlaying, genreListId } = useSelector((state) => state.player)
   const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP')
-
 
   const genreTitle = genres.find(({ value }) => value === genreListId)?.title
 

@@ -11,8 +11,6 @@ const AroundYou = () => {
 
   const { data, isFetching, error } = useGetSongsByCountryQuery(country)
 
-
-
   useEffect(() => {
     const getLocationData = async () => {
       try {

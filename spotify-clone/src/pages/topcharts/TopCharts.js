@@ -4,7 +4,6 @@ import { useGetTopChartsQuery } from "../../redux/services/shazamCore"
 
 const TopCharts = () => {
 
-
   const { activeSong, isPlaying } = useSelector((state) => state.player)
 
   const { data, isFetching, error } = useGetTopChartsQuery()

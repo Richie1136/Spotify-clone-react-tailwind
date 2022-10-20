@@ -11,16 +11,13 @@ const ArtistDetails = () => {
 
   const term = obj.get('artistid')
 
-
   const { activeSong, isPlaying } = useSelector((state) => state.player)
 
   const { data: artistData, isFetching, error } = useGetArtistDetailsQuery(artistid)
 
-
   if (isFetching) return <Loader title="Loading artist details" />
 
   if (error) return <Error />
-
 
   return (
     <div className="flex flex-col">

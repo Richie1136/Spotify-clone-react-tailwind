@@ -12,8 +12,6 @@ const SongDetails = () => {
   const obj = new URLSearchParams(songid)
 
   const term = obj.get('songid')
-  console.log(term)
-
 
   const { activeSong, isPlaying } = useSelector((state) => state.player)
 
@@ -33,7 +31,6 @@ const SongDetails = () => {
     dispatch(setActiveSong({ song, data, index }))
     dispatch(playPause(true))
   }
-
 
   return (
     <div className="flex flex-col">

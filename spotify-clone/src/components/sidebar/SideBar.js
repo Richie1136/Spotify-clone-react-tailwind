@@ -4,11 +4,9 @@ import musicLogo from '../../assets/music-logo.jpeg'
 import NavLinks from "../navlinks/NavLinks"
 import { HiOutlineMenu } from "react-icons/hi"
 
-
 const SideBar = () => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
 
   return (
     <>

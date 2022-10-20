@@ -10,7 +10,6 @@ import TopChartCard from "../topchartcard/TopChartCard"
 import 'swiper/css'
 import 'swiper/css/free-mode'
 
-
 const TopPlay = () => {
 
   const dispatch = useDispatch()
@@ -23,8 +22,6 @@ const TopPlay = () => {
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: 'smooth' })
   })
-
-
 
   const handlePause = () => {
     dispatch(playPause(false))
